@@ -1,17 +1,18 @@
 name: Build and release Windows exe
 
-# Runs on every push to a tag like "v1.0.0", and can also be triggered
-# manually from the Actions tab (useful for testing the build without
-# publishing a release).
 on:
   push:
     tags:
       - "v*"
   workflow_dispatch:
 
+permissions:
+  contents: write
+
 jobs:
   build:
     runs-on: windows-latest
+
     steps:
       - uses: actions/checkout@v4
 
